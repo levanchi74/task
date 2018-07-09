@@ -1,0 +1,28 @@
+<h2 >Listing category</h1>
+
+<%= link_to 'New category', new_category_path %>
+<table class="table">
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th colspan="3"></th>
+  </tr>
+  <% @categories.each do |cate| %>
+    <tr>
+    <td><%=cate.id%></td>
+    <td><%=cate.name%></td>
+
+    <td><%#= link_to 'Show', admin_user_path(user) %></td>
+    <td><%#= link_to 'Edit', edit_admin_user_path(user) %></td>
+    <td><%= link_to 'Destroy', category_path(cate),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+</br>
+<%#= link_to 'View all newspaper', admin_newspapers_path %>
+
+ <%#= link_to "Log out", logout_path, method: :delete %>
+
+<%#= link_to 'View all product' , products_path %>

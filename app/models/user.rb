@@ -2,6 +2,11 @@ class User < ApplicationRecord
 
   has_many :comments ,dependent: :destroy 
   enum role: {"user":0,"admin":1} 
+  after_initialize do
+    if self.new_record?
+      self.role ||= :user
+    end
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
