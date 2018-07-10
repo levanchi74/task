@@ -7,6 +7,11 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.0'
 
 gem 'devise'
+gem "cocoon"
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+gem 'simple_form'
+gem "paperclip", "~> 6.0.0"
 
 
 
