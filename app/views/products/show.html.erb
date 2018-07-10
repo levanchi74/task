@@ -1,0 +1,36 @@
+
+<p>
+  <strong>id:</strong>
+  <%= @product.id %>
+</p>
+
+<p>
+  <strong>name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>decription:</strong>
+  <%= @product.decription %>
+</p>
+
+<p>
+  <strong>category:</strong>
+  <%= @product.category.name %>
+</p>
+
+
+<%= form_for @comment , url:new_comment_path do |f| %>
+    <div class="form-group">
+        <%= f.text_area :body%>
+    </div>
+    <%= f.submit %> 
+<% end %>
+
+<%= link_to 'Edit', edit_product_path(@product) %>
+<%= link_to 'Back', products_path %>
