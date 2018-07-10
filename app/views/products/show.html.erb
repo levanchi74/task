@@ -25,6 +25,11 @@
 </p>
 
 
+  <strong>image</strong>
+  <% @product.photos.each do |p| %>
+  <%= image_tag p.avatar.url(:medium) %>
+  <% end %>%>
+
 
 
 <%= link_to 'Edit', edit_product_path(@product) %>

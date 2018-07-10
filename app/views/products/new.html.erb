@@ -4,14 +4,13 @@
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :decription, as: :text%>
-  <%#= f.input :avatar , as: :file%>
   <%= f.select :category_id , @categorys.collect{|c|[c.name,c.id]},include_blank:false %></br>
   <h2> photo</h2>
- <%= f.simple_fields_for :photos do |photo|%>
-    <%= render 'photo_fields', f: photo %>
-    .links
-      = link_to_add_association 'add task', f, :tasks
-
+  <%= f.simple_fields_for :photos do |photo|%>
+    <%= render 'photo_fields', f:photo %>
+   
+    <%=link_to_add_association 'add photo', f, :photos%> 
+ <%end%>
 
   <%=f.submit%>
 <% end %>
