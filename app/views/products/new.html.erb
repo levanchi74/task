@@ -1,18 +1,5 @@
 <h1>New product</h1>
 
-<%= simple_form_for @product do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :decription, as: :text%>
-  <%= f.select :category_id , @categorys.collect{|c|[c.name,c.id]},include_blank:false %></br>
-  <h2> photo</h2>
-  <%= f.simple_fields_for :photos do |photo|%>
-    <%= render 'photo_fields', f:photo %>
-   
-    <%=link_to_add_association 'add photo', f, :photos%> 
- <%end%>
-
-  <%=f.submit%>
-<% end %>
+<%= render 'form' %>>
 
 <%= link_to 'Back', products_path %>

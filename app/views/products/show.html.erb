@@ -25,12 +25,17 @@
 </p>
 
 
-  <strong>image</strong>
-  <% @product.photos.each do |p| %>
-  <%= image_tag p.avatar.url(:medium) %>
-  <% end %>%>
+    <strong>image</strong>
+    <% @product.photos.each do |p| %>
+    <%= image_tag p.avatar.url(:thumb) %>
+    <% end %>
+
+<%= simple_form_for @comment,url: new_product_commnent_path do |f|%>
+  <%= f.input :body ,as: :textarea %>
 
 
 
-<%= link_to 'Edit', edit_product_path(@product) %>
+</br>
+
+<%#= link_to 'Edit', edit_product_path(@product) %>
 <%= link_to 'Back', products_path %>
