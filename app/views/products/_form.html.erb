@@ -1,0 +1,23 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :decription, as: :text%>
+  <%= f.select :category_id , @categorys.collect{|c|[c.name,c.id]},include_blank:false %></br>
+ 
+ 
+  <div class="photos">
+    <%= f.fields_for :photos do |photo|%>
+      <%= render 'photo_fields', f:photo %>
+    <%end%>
+    <div class="links">
+        <%=link_to_add_association 'add photo', f, :photos%> 
+    </div>
+  </div>
+
+
+<%#= f.input :avatar, as: :file %>
+
+
+  
+  <%= f.button :submit %>
+<% end %>

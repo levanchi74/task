@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
 
     def index
         @products=Product.all
+        @q = Product.ransack(params[:q])
+        @product = @q.result(distinct: true)
+       
     end
      
     def show 
@@ -12,7 +15,7 @@ class ProductsController < ApplicationController
      
     def new 
         @product=Product.new
-        #@product.photos.new
+        @product.photos.new
     end
 
     def edit
@@ -49,7 +52,9 @@ class ProductsController < ApplicationController
         @product=Product.find(params[:id])
     end
     def product_params 
-        #params.require(:product).permit(:name,:price,:decription,:category_id,photos_attributes: [:avatar])
+       
+        params.require(:product).permit(:name,:price,:decription,:category_id,photos_attributes: [:avatar])
+        #params.require(:product).permit(:name,:price,:decription,:category_id,)
     end
 
 end

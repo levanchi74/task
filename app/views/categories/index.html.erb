@@ -26,3 +26,40 @@
  <%#= link_to "Log out", logout_path, method: :delete %>
 
 <%#= link_to 'View all product' , products_path %>
+<%= search_form_for @q do |f| %>
+
+  <%# Search if the name field contains...%>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%# Search if an associated articles.title starts with...%>
+  <%#= f.label :products_title_start %>
+  <%#= f.search_field :products_title_start %>
+
+  <%# Attributes may be chained. Search multiple attributes for one value...%>
+  <%#= f.label :name_or_description_or_email_or_articles_title_cont %>
+  <%#= f.search_field :decription_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th> <%= sort_link @q, :name,  t("name") %> </th>
+      <th> <%= sort_link @q, :product, t("product") %> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cate .each do |c| %>
+    <tr>
+      <td> <%= c.name %> </td>
+      <td> 
+      <% c.products.each do |pro| %> 
+       <%= pro.name%>
+      <%end%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

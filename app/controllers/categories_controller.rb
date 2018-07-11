@@ -4,6 +4,8 @@ class CategoriesController < ApplicationController
 
     def index
         @categories=Category.all
+        @q = Category.ransack(params[:q])
+        @cate = @q.result(distinct: true)
     end
 
     # def show
